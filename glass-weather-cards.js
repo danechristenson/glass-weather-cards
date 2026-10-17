@@ -11,7 +11,7 @@
  * so any weather integration works. No build step, no dependencies.
  */
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 
 const ICONS = {
   "clear-night": "mdi:weather-night", cloudy: "mdi:weather-cloudy", exceptional: "mdi:alert-circle-outline",
@@ -359,8 +359,12 @@ class GlassFrost extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `<style>
       :host { display: block; height: 100%; }
+      /* blur what's behind, and make the wrapped card's own background see-through: every
+         Home Assistant card draws its background from --ha-card-background */
       .glass { height: 100%; border-radius: var(--ha-card-border-radius, 12px); overflow: hidden;
-        backdrop-filter: blur(var(--glass-weather-blur, 8px)); -webkit-backdrop-filter: blur(var(--glass-weather-blur, 8px)); }
+        backdrop-filter: blur(var(--glass-weather-blur, 8px)); -webkit-backdrop-filter: blur(var(--glass-weather-blur, 8px));
+        --ha-card-background: rgba(var(--rgb-card-background-color, 28, 28, 28), var(--glass-weather-alpha, 0.55)); }
+      :host([background]) .glass { border-radius: 0; }
     </style><div class="glass"></div>`;
   }
 
@@ -369,6 +373,7 @@ class GlassFrost extends HTMLElement {
     this._config = config;
     // background: true fixes the wrapped card behind the whole page (e.g. an animated sky)
     this.style.cssText = config.background ? "position: fixed; inset: 0; z-index: -1; height: 100vh;" : "";
+    this.toggleAttribute("background", !!config.background);
     this._build();
   }
 
