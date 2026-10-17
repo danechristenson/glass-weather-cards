@@ -106,36 +106,24 @@ strategy:
   background: true                      # animated sky when Dynamic Weather Card is installed
 ```
 
-It uses these other cards when they're installed, and falls back to Home Assistant's own cards
-when they're not:
+It uses the [optional dependencies](#optional-dependencies) below when they're installed, and
+Home Assistant's own cards when they're not.
 
-- [Daylight Calendar Card](https://github.com/superdingo101/daylight-calendar-card) for the
-  calendar (otherwise the built-in calendar card)
-- [Dynamic Weather Card](https://github.com/teuchezh/dynamic-weather-card) for the animated sky
-  behind the page (otherwise no background)
-- [Bubble Card](https://github.com/Clooos/Bubble-Card) for a weather pop-up with 48 hours and
-  14 days (otherwise tapping the weather opens Home Assistant's own weather dialog)
+## Optional dependencies
+
+The cards themselves need nothing else. The dashboard strategy uses these when you've
+installed them; none are bundled here.
+
+| Card | Used for | Without it |
+|---|---|---|
+| [Daylight Calendar Card](https://github.com/superdingo101/daylight-calendar-card) by superdingo101 (MIT) | The calendar | Home Assistant's calendar card |
+| [Dynamic Weather Card](https://github.com/teuchezh/dynamic-weather-card) by teuchezh (MIT) | The animated sky behind the page | No background |
+| [Bubble Card](https://github.com/Clooos/Bubble-Card) by Clooos (MIT) | A weather pop-up with 48 hours and 14 days | Tapping the weather opens Home Assistant's weather dialog |
 
 ## Credits
 
-These cards stand on other people's work:
-
-- **[Dynamic Weather Card](https://github.com/teuchezh/dynamic-weather-card)** by teuchezh
-  (MIT): the animated sky behind the dashboard strategy, and the inspiration for pairing the
-  weather with the page background.
-- **[Weather Forecast Extended](https://github.com/Thyraz/weather-forecast-extended)** by Thyraz
-  (MIT): its hourly strip, with an icon for every hour, is what `glass-weather-hourly` is
-  modelled on.
-- **[Daylight Calendar Card](https://github.com/superdingo101/daylight-calendar-card)** by
-  superdingo101 (MIT): the calendar the dashboard strategy uses, with its own see-through settings.
-- **[Bubble Card](https://github.com/Clooos/Bubble-Card)** by Clooos (MIT): the pop-up the
-  dashboard strategy uses.
-- **[Material Design Icons](https://pictogrammers.com/library/mdi/)** by Pictogrammers: every
-  icon, through Home Assistant's built-in icon set.
-- **[Home Assistant](https://www.home-assistant.io/)**: the weather forecast subscription,
-  card picker and dashboard strategy APIs these cards are built on.
-
-None of these projects are bundled here; the strategy only uses them when you've installed them.
+- [Weather Forecast Extended](https://github.com/Thyraz/weather-forecast-extended) by Thyraz
+  (MIT): `glass-weather-hourly` is modelled on its hourly strip, with an icon for every hour.
 
 ## License
 
