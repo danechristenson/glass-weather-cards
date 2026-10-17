@@ -120,11 +120,6 @@ installed them; none are bundled here.
 | [Dynamic Weather Card](https://github.com/teuchezh/dynamic-weather-card) by teuchezh (MIT) | The animated sky behind the page | No background |
 | [Bubble Card](https://github.com/Clooos/Bubble-Card) by Clooos (MIT) | A weather pop-up with 48 hours and 14 days | Tapping the weather opens Home Assistant's weather dialog |
 
-## Credits
-
-- [Weather Forecast Extended](https://github.com/Thyraz/weather-forecast-extended) by Thyraz
-  (MIT): `glass-weather-hourly` is modelled on its hourly strip, with an icon for every hour.
-
 ## License
 
 MIT. See [LICENSE](LICENSE).
