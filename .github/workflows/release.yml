@@ -1,0 +1,21 @@
+name: Release
+
+# Push a tag like v0.1.0 to publish a release (HACS and the Marketplace install from releases)
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check the version in the card matches the tag
+        run: grep -q "const VERSION = \"${GITHUB_REF_NAME#v}\"" glass-weather-cards.js
+      - uses: softprops/action-gh-release@v3
+        with:
+          files: glass-weather-cards.js
+          generate_release_notes: true
